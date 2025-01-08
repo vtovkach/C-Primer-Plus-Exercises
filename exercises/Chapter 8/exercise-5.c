@@ -5,10 +5,10 @@
 int main(void)
 {
     char ch;
+    int secret_number;
     int high = 100;
     int guess = 50;
     int low = 0;
-    int secret_number;
 
     printf("Pick an integer from 1 to 100. I will try to guess ");
     printf("it.\nRespond with a h if my guess is high and with ");
