@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include <ctype.h>
-#include <unistd.h>
 
 #define PAY_RATE_ONE    8.75
 #define PAY_RATE_TWO    9.33
