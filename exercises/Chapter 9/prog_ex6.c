@@ -12,13 +12,13 @@ int main(void)
     y = 3;
     z = 7;
 
-    sort_two(&x, &y, &z);
+    sort(&x, &y, &z);
 
     printf("x:%.0lf | y: %.0lf | z: %.0lf\n", x, y, z);
     return 0;
 }
 
-void sort_two(double *a, double *b, double *c)
+void sort(double *a, double *b, double *c)
 {
     double temp;
 
