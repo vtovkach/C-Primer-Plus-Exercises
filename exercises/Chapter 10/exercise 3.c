@@ -20,7 +20,7 @@ int main(void)
 
 int max_int(const int *src, size_t size)
 {
-    int max = 0; 
+    int max = *src; 
 
     for(int i = 0; i < size; i++)
     {
