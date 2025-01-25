@@ -1,6 +1,6 @@
 /* Programming Exercise 10.9 */
 // Version 2 
-// Using pointer arithmetic 
+// Using pointer arithmetic.
 
 #include <stdio.h>
 
