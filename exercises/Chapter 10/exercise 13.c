@@ -3,18 +3,16 @@
 #include <stdio.h>
 
 #define ROWS     3
-#define COLUMNS  2
+#define COLUMNS  5
 
 void input(double arr[][COLUMNS], int rows);
 
 // should accept only 1D array;
-void compute(const double *arr, double *subt, double *total);
+double compute_set_avg(const double *arr);
 
-void compute_all_avg();
+double compute_total_avg(const double arr[][COLUMNS]);
 
-void find_max();
-
-void display_result();
+double find_max(const double arr[][COLUMNS]);
 
 void display(const double arr[][COLUMNS], int rows);
 
@@ -22,18 +20,25 @@ int main(void)
 {
     double user_input[ROWS][COLUMNS];
 
-    double subtotal;
-    double total;
+    double set_avg;
+    double total_avg;
+    double max_value;
 
     input(user_input, ROWS);
 
     for(int i = 0; i < ROWS; ++i)
     {
-        compute(*(user_input + i), &subtotal, &total);
-        printf("The average of set %d is %.1lf\n", i + 1, subtotal / COLUMNS);
+        set_avg = compute_set_avg(*(user_input + i));
+        printf("The average of set %d is %.1lf\n", i + 1, set_avg);
     }
 
-    //display(user_input, ROWS);
+    total_avg = compute_total_avg(user_input);
+
+    printf("The total average is %.1lf.\n", total_avg);
+
+    max_value = find_max(user_input);
+
+    printf("The largest value is %.1lf\n", max_value);
 
     return 0;
 }
@@ -53,21 +58,51 @@ void input(double arr[][COLUMNS], int rows)
         }
         printf("Set %d\n", i + 1);
     }
-
-    
-
 }
 
-void compute(const double *arr, double *subt, double *total)
+double compute_set_avg(const double *arr)
 {
-    // reset subtotal
-    *subt = 0;
+    double total = 0;
 
     for(int i = 0; i < COLUMNS; ++i)
     {
-        *subt += arr[i];
+        total += arr[i];
     }
-    *total += *subt;
+    
+    return total / COLUMNS;  // return average 
+}
+
+double compute_total_avg(const double arr[][COLUMNS])
+{
+    double total = 0;
+    
+    for(int i = 0; i < ROWS; ++i)
+    {
+        for(int j = 0; j < COLUMNS; ++j)
+        {
+            total = total + arr[i][j];
+        }
+    }
+
+    return total / (COLUMNS * ROWS);
+}
+
+double find_max(const double arr[][COLUMNS])
+{
+    double max_value = arr[0][0];
+
+    for(int i = 0; i < ROWS; ++i)
+    {
+        for(int j = 0; j < COLUMNS; ++j)
+        {
+            if(arr[i][j] > max_value)
+            {
+                max_value = arr[i][j];
+            }
+        }
+    }
+    
+    return max_value;
 }
 
 void display(const double arr[][COLUMNS], int rows)
