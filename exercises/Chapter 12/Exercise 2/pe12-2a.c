@@ -36,7 +36,7 @@ void get_info(void)
     {
         printf("Please enter distance you traveled in miles: ");
         scanf("%f", &distance);
-        printf("Please enter the number of liters consumed: ");
+        printf("Please enter the number of gallons consumed: ");
         scanf("%f", &fuel_consumed);
     }
 }
