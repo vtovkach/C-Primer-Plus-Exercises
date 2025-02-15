@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TOTAL_NUMS 10
+#define TOTAL_NUMS 1000
 #define MIN        1
 #define MAX        10
 
