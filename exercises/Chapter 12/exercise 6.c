@@ -14,7 +14,7 @@ int main(void)
 {
     srand(time(NULL));
 
-    int occurances[MAX] = {};        
+    int occurances[MAX] = {0};  // Initialize array with 0s
     int rand_num;
 
     for(int i = 0; i < TOTAL_NUMS; ++i)
